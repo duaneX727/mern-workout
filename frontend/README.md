@@ -1,12 +1,12 @@
 # Workout Buddy - Frontend
 
-This is the frontend application for the **Workout Buddy** project, a MERN (MongoDB, Express, React, Node.js) stack application. It allows users to track their workouts, view details, and manage their exercise routines with full user authentication. 
+This is the frontend application for the **Workout Buddy** project, a MERN (MongoDB, Express, React, Node.js) stack application. It allows users to track their workouts, view details, and manage their exercise routines with full user authentication.
 
-*Tutorial source:* [The Net Ninja - MERN Stack Crash Course](https://www.youtube.com/watch?v=98BzS5Oz5E4&list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE&index=1)
+_Tutorial source:_ [The Net Ninja - MERN Stack Crash Course](https://www.youtube.com/watch?v=98BzS5Oz5E4&list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE&index=1)
 
 ## Features
 
-- **User Authentication:** 
+- **User Authentication:**
   - User Signup and Login functionality.
   - Protected routes (users must be logged in to manage workouts).
   - JWT (JSON Web Token) based authentication context.
@@ -16,7 +16,7 @@ This is the frontend application for the **Workout Buddy** project, a MERN (Mong
   - Delete workouts.
 - **State Management:**
   - Uses React Context API (`AuthContext`, `WorkoutContext`) combined with `useReducer` for robust global state management.
-- **Custom Hooks:** 
+- **Custom Hooks:**
   - Abstracted logic using hooks like `useAuthContext`, `useWorkoutsContext`, `useLogin`, `useSignup`, and `useLogout`.
 
 ## Tech Stack
@@ -47,6 +47,7 @@ Make sure you have Node.js installed on your machine. You will also need the bac
 ### Installation
 
 1. Clone the repository or navigate to the frontend directory:
+
    ```bash
    cd frontend
    ```
