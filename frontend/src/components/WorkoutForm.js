@@ -9,7 +9,7 @@ const [title, setTitle] = useState('')
 const [load, setLoad] = useState('')
 const [reps, setReps] = useState('')
 const [error, setError] = useState(null)
-//const [emptyFields,setEmptyFields] = useState([])
+const [emptyFields,setEmptyFields] = useState([])
 
 const handleSubmit = async e => {
   e.preventDefault() // prevents from refreshing the page
@@ -27,47 +27,47 @@ const handleSubmit = async e => {
 
   if (!response.ok){
     setError(json.error)
-    //setEmptyFields(json.emptyFields)
+    setEmptyFields(json.emptyFields)
   }
   if (response.ok){
-    setError(null)
     setTitle('')
     setLoad('')
     setReps('')
-    //console.log('new workout added',json)
+    setError(null)
+    setEmptyFields([])
     dispatch({type: 'CREATE_WORKOUT', payload: json}) 
-    //setEmptyFields(json.emptyFields)
+    
   }
- // dispatch({type: 'ADD_WORKOUT', payload: json})
 }
   return (
    <form className="create" onSubmit={handleSubmit}>
     <h3>Add a New Workout</h3>
 
-    <label htmlFor="title">Excercise Title:</label>
+    <label>Excercise Title:</label>
       <input 
       type="text" 
       onChange={e => setTitle(e.target.value)}
       value={title}
-      id="title"
-      //className={emptyFields.includes('title') ? 'error':''}    
+      //id="title"
+      // placeholder='Title'
+      className={emptyFields.includes('title') ? 'error': ''}    
       />
-    <label htmlFor="load">Load (in lbs.):</label>
+    <label>Load (in lbs.):</label>
       <input 
       type="number" 
       onChange={ e => setLoad(e.target.value)}
       value={load}
-      id="load"
-      //className={emptyFields.includes('load') ? 'error':''} 
+      //id="load"
+      className={emptyFields.includes('load') ? 'error': ''} 
       />
     
-    <label htmlFor="reps">Number of Reps:</label>
+    <label>Number of Reps:</label>
       <input 
       type="number" 
       onChange={ e => setReps(e.target.value)}
       value={reps}
-      id="reps"
-      //className={emptyFields.includes('reps') ? 'error':''}        
+      //id="reps"
+      className={emptyFields.includes('reps') ? 'error': ''}        
       />
     <button>Add Workout</button>
     {error && <div className="error">{error}</div>} 

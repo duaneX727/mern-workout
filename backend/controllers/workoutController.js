@@ -24,6 +24,15 @@ const getWorkout = async (req, res) => {
 // create a new workout
 const createWorkout = async (req, res) => {
   const {title, load, reps} = req.body
+// Custom validation
+  let emptyFields = []
+
+  if(!title){emptyFields.push('title')}
+  if(!load){emptyFields.push('load')}
+  if(!reps){emptyFields.push('reps')}
+  if(emptyFields.length > 0){
+    return res.status(400).json({error: 'Please fill in all of the fields', emptyFields})
+  }
 
   // add document to collection
   try {

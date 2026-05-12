@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Workout Buddy - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend application for the **Workout Buddy** project, a MERN (MongoDB, Express, React, Node.js) stack application. It allows users to track their workouts, view details, and manage their exercise routines with full user authentication. 
 
-## Available Scripts
+*Tutorial source:* [The Net Ninja - MERN Stack Crash Course](https://www.youtube.com/watch?v=98BzS5Oz5E4&list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE&index=1)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **User Authentication:** 
+  - User Signup and Login functionality.
+  - Protected routes (users must be logged in to manage workouts).
+  - JWT (JSON Web Token) based authentication context.
+- **Workout Management:**
+  - Create new workouts (Title, Load, Reps).
+  - View all workouts in a feed.
+  - Delete workouts.
+- **State Management:**
+  - Uses React Context API (`AuthContext`, `WorkoutContext`) combined with `useReducer` for robust global state management.
+- **Custom Hooks:** 
+  - Abstracted logic using hooks like `useAuthContext`, `useWorkoutsContext`, `useLogin`, `useSignup`, and `useLogout`.
 
-Runs the app in the development mode.\
+## Tech Stack
+
+- **React.js:** UI Library
+- **React Router DOM:** Handling navigation (Pages: Home, Login, Signup)
+- **Context API:** Global State Management
+- **CSS:** Standard CSS for styling (`index.css`)
+
+## Project Structure
+
+```text
+src/
+├── components/       # Reusable UI components (NavBar, WorkoutDetails, WorkoutForm)
+├── context/          # React Context providers (AuthContext, WorkoutContext)
+├── hooks/            # Custom hooks for state and auth logic
+├── pages/            # Main route pages (Home, Login, Signup)
+├── App.js            # Main application component & routing setup
+└── index.js          # React entry point
+```
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js installed on your machine. You will also need the backend API running for the app to function properly.
+
+### Installation
+
+1. Clone the repository or navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the App
+
+To start the development server, run:
+
+```bash
+npm start
+```
+
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Backend Connection
 
-### `npm test`
+By default, the application makes API requests to the backend server. Make sure your backend API is running (typically on `http://localhost:4000` for this tutorial) and that you have a proxy configured in `package.json` if needed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+"proxy": "http://localhost:4000"
+```
